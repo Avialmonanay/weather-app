@@ -1,0 +1,45 @@
+ul{
+    list-style-type: none;
+    margin: 10px 0 0 0;
+}
+
+
+.header{
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 153, 0));
+}
+
+
+.search {
+    display: flex;
+    /* background-color: red; */
+    flex-direction: column;
+    padding-bottom: 10px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 5px;
+    border-style: groove;
+}
+
+.searchmarg{
+    margin: 5px;
+}
+
+.box {
+    border-radius: 10px;
+}
+
+.input{
+    height: 40px;
+}
+
+.historycard{
+    background-color: red;
+    height: 45px;
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    margin: 1%;
+}
