@@ -23,20 +23,72 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <container>
-        <div class= "search col-3">
+    <main class = "frow">
+    <container class="col-3">
+        <div class= "search">
             <h2 class="searchmarg">Search for a city:</h2>
             <input class="searchmarg box input" placeholder="Salt Lake City"></input>
-            <button class="searchmarg box">Search</button>
+            <button class="searchmarg box" id="searchbtn">Search</button>
         </div>
 
         <div>
-            <ul class = "col-3" id = "history">
+            <ul class = "col-12 height 100" id = "history">
             </ul>
         </div>
     </container>
 
-
+    <container  class="col-8">
+        <div class="currentWeather">
+            <h1>city/date</h1>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity</p>
+            <p>UV Index</p>
+        </div>
+        <br>
+        <br>
+        <div>
+            <h1>5-day forcast</h1>
+            <div class="fiveDay">
+                <div class="col-2 fiveDayCard">
+                    <h1>date</h1>
+                    <p>emoji</p>
+                    <p>temp:</p>
+                    <p>wind:</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-2 fiveDayCard">
+                    <h1>date</h1>
+                    <p>emoji</p>
+                    <p>temp:</p>
+                    <p>wind:</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-2 fiveDayCard">
+                    <h1>date</h1>
+                    <p>emoji</p>
+                    <p>temp:</p>
+                    <p>wind:</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-2 fiveDayCard">
+                    <h1>date</h1>
+                    <p>emoji</p>
+                    <p>temp:</p>
+                    <p>wind:</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col-2 fiveDayCard">
+                    <h1>date</h1>
+                    <p>emoji</p>
+                    <p>temp:</p>
+                    <p>wind:</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+        </div>
+    </container>
+    </main>
 
 
   </Body>

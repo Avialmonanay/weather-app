@@ -23,6 +23,8 @@ ul{
     border-style: groove;
 }
 
+
+
 .searchmarg{
     margin: 5px;
 }
@@ -42,4 +44,55 @@ ul{
     border-radius: 5px;
     border-style: solid;
     margin: 1%;
+    text-align: center;
+    background-color: lightgrey;
+    margin-bottom: 2%;
+    
+}
+
+.historycard:hover{
+opacity: .5;
+transform: translateY(-0.2rem);
+transition: transform 150ms;
+}
+
+.currentWeather{
+    padding: 1%;
+    margin: 1%;
+    border: 1px;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.frow{
+    display: flex;
+    flex-direction: row;
+    height: 94vh;
+}
+
+#history{
+    height: 75vh;
+    
+}
+
+.fiveDay{
+    flex-direction: row;
+    display: flex;
+    justify-content: start;
+    
+}
+
+.fiveDayCard{
+    border-radius: 15px;
+    background-color: navy;
+    color: white;
+    margin-left: 3%;
+    
+    
+}
+
+#searchbtn:hover {
+    opacity: .5;
+    transform: translateY(-0.2rem);
+    transition: transform 150ms;
 }

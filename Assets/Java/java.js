@@ -23,23 +23,13 @@ $(".search").click(function (event) {
 
         else {
 
-
             cityNameStorage.push(userInput)
-
 
             localStorage.setItem("cityNameLS", JSON.stringify(cityNameStorage));
         }
         weatherItem()
         logHistory()
         return
-
-
-
-
-
-
-
-
     }
 
 })
@@ -60,8 +50,6 @@ function weatherItem() {
             });
     }
 }
-
-
 
 
 
