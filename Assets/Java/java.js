@@ -66,16 +66,19 @@ function weatherItem() {
 
 
 function logHistory() {
-    const cityHistory = JSON.parse(localStorage.getItem("cityNameLS"));
+    //clears list to be prepared for newly created list
+    $('#history').empty();
 
+    const cityHistory = JSON.parse(localStorage.getItem("cityNameLS"));
+    
 
     if (!cityHistory) {
         return
     }
 
     else{
+        
         for (var i = 0; i < cityHistory.length; i++) {
-
             var nameDisplay = cityHistory;
 
 
@@ -95,6 +98,20 @@ function logHistory() {
 
     }
 }
+
+
+//watches for clicks on the history items. If one is selected it overides the "currentCity" local storage and calls to the weather item function updating the currently displayed weather to your history item.
+$("#history").click(function (event) {
+    historyEL = event.target
+    if (historyEL.matches("h2")) {
+        var historyChoice = historyEL.innerText
+        localStorage.setItem("currentCity", historyChoice)
+    }
+}
+)
+
+
+
 
 weatherItem()
 logHistory()
