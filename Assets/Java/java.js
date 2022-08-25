@@ -1,14 +1,15 @@
 var cityNameLS = []
 var listEl = $("#history")
+var fiveDayContainer = $("#fiveDay")
 
 
 $(".search").click(function (event) {
     var element = event.target
     if (element.matches("button")) {
         var userInput = $(this).children("input").val()
-        // console.log(userInput)
+        
 
-        if (!userInput){
+        if (!userInput) {
             return
         }
         localStorage.setItem("currentCity", userInput)
@@ -19,7 +20,7 @@ $(".search").click(function (event) {
             cityNameLS.push(userInput)
 
             localStorage.setItem("cityNameLS", JSON.stringify(cityNameLS));
-            console.log
+        
         }
 
         else {
@@ -47,23 +48,29 @@ function currentWeather() {
                 return response.json();
             })
             .then(function (data) {
-                console.log(data);
+            
                 setCurrentWeather(data)
-                
+                fiveDayWeather()
             });
 
-            
+
     }
 }
 
-function setCurrentWeather(data){ 
-    $("#currentSelection").text(data.name)
-    $("#currentTemp").text(data.main.temp+ "f")
-    $("#currentWind").text(data.wind.speed+ " mph")
-    $("#currentHumidity").text(data.main.humidity+"%")
-    console.log(data.weather[0].icon)
+function setCurrentWeather(data) {
+    
+
+    var currentDataUnix = data.dt
+    var currentDay = moment.unix(currentDataUnix).format("MM/DD/YY")
+
+console.log(data)
+    $("#currentSelection").text(data.name + " " + currentDay)
+    $("#skyCon").text(data.weather[0].description)
+    $("#currentTemp").text(data.main.temp + "f")
+    $("#currentWind").text(data.wind.speed + " mph")
+    $("#currentHumidity").text(data.main.humidity + "%")
     var weathericon = data.weather[0].icon
-    $(".icon").html("<img src=" + weathericon +">")
+    $(".icon").html("<img src=" + weathericon + ">")
 }
 
 function logHistory() {
@@ -71,24 +78,24 @@ function logHistory() {
     $('#history').empty();
 
     const cityHistory = JSON.parse(localStorage.getItem("cityNameLS"));
-    
+
 
     if (!cityHistory) {
         return
     }
 
-    else{
-        
+    else {
+
         for (var i = 0; i < cityHistory.length; i++) {
             var nameDisplay = cityHistory;
 
 
-            
+
             var listItem = document.createElement("li")
             listItem.setAttribute("class", "historycard")
 
             var initial = document.createElement("h2")
-            
+
             initial.innerText = nameDisplay[i]
 
 
@@ -113,7 +120,70 @@ $("#history").click(function (event) {
 )
 
 
+function fiveDayWeather() {
+    const currentCityLS = localStorage.getItem("currentCity")
+    if (currentCityLS) {
+        fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + currentCityLS + "&units=imperial&appid=c64d9c95aa9e442bc0444f33c92c8506", {
+
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                setFiveDayWeather(data)
+            })
+    }
+}
 
 
+function setFiveDayWeather(data) {
+    fiveDayContainer.empty()
+
+
+    for (let i = 3; i < data.list.length; i += 8) {
+        var fiveDayDate = data.list[i].dt
+
+
+        var monthday = moment.unix(fiveDayDate).format("MM/DD")
+
+
+        var card = document.createElement("div")
+        card.setAttribute("class", "col-2 fiveDayCard")
+
+        var fiveDayCardDate = document.createElement("h2")
+        fiveDayCardDate.innerText = monthday
+
+        var skyCondition = document.createElement("p")
+        skyCondition.innerText = (data.list[i].weather[0].description)
+
+        var fiveDayHigh = document.createElement("p")
+        fiveDayHigh.innerText = ("High: " + data.list[i].main.temp_max + "f")
+
+        var fiveDayLow = document.createElement("p")
+        fiveDayLow.innerText = ("Low: " + data.list[i].main.temp_min + " f")
+
+        var fiveDayHumidity = document.createElement("p")
+        fiveDayHumidity.innerText = ("Humidity: " + data.list[i].main.humidity)
+
+
+
+        fiveDayContainer.append(card)
+        card.append(fiveDayCardDate)
+        card.append(skyCondition)
+        card.append(fiveDayHigh)
+        card.append(fiveDayLow)
+        card.append(fiveDayHumidity)
+
+
+
+
+
+
+
+
+    }
+}
+
+fiveDayWeather()
 currentWeather()
 logHistory()

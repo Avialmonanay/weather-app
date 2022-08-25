@@ -75,7 +75,7 @@ transition: transform 150ms;
     
 }
 
-.fiveDay{
+#fiveDay{
     flex-direction: row;
     display: flex;
     justify-content: start;
@@ -83,10 +83,12 @@ transition: transform 150ms;
 }
 
 .fiveDayCard{
+    display: flex;
     border-radius: 15px;
     background-color: navy;
     color: white;
     margin-left: 3%;
+    flex-direction: column;
     
     
 }
