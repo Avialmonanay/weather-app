@@ -28,7 +28,7 @@ ul{
 .fiveDayCard{
     display: flex;
     border-radius: 15px;
-    background-color: navy;
+    background-color: rgb(46, 158, 185);
     color: white;
     margin-left: 3%;
     flex-direction: column;

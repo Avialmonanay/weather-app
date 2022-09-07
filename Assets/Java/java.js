@@ -1,8 +1,11 @@
+//global variables
 var cityNameLS = []
 var listEl = $("#history")
 var fiveDayContainer = $("#fiveDay")
 
 
+
+// search event listener, grabs user input and sets it as the current city in local storage.
 $(".search").click(function (event) {
     var element = event.target
     if (element.matches("button")) {
@@ -23,6 +26,7 @@ $(".search").click(function (event) {
         
         }
 
+        //pushes items to local storage and creates a array of searched citys to be displayed later
         else {
 
             cityNameStorage.push(userInput)
@@ -37,6 +41,7 @@ $(".search").click(function (event) {
 })
 
 
+// grabs current city from local storage and inputs it into an API call that pulls a 1 day forcast. Sends data to currentWeather function. calls on five day weather
 function currentWeather() {
     const currentCityLS = localStorage.getItem("currentCity")
 
@@ -57,6 +62,7 @@ function currentWeather() {
     }
 }
 
+//updates the main weather card with API data. inputs all data onto the screen
 function setCurrentWeather(data) {
     
 
@@ -73,6 +79,8 @@ console.log(data)
     $(".icon").html("<img src=" + weathericon + ">")
 }
 
+
+//creates a histort log on the left of the application
 function logHistory() {
     //clears list to be prepared for newly created list
     $('#history').empty();
@@ -120,6 +128,8 @@ $("#history").click(function (event) {
 )
 
 
+
+// pulls the current city from local storage and runs an API call to pull forcast information for 5 days
 function fiveDayWeather() {
     const currentCityLS = localStorage.getItem("currentCity")
     if (currentCityLS) {
@@ -136,6 +146,7 @@ function fiveDayWeather() {
 }
 
 
+//takes the 5 day API data and pulls out 1 forcast from each day. Creates the 5 forcast days with their corisponding date.
 function setFiveDayWeather(data) {
     fiveDayContainer.empty()
 
