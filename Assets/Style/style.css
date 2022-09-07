@@ -4,6 +4,8 @@ ul{
 }
 
 
+/* start class styles */
+
 .header{
     display: flex;
     justify-content: center;
@@ -23,7 +25,16 @@ ul{
     border-style: groove;
 }
 
-
+.fiveDayCard{
+    display: flex;
+    border-radius: 15px;
+    background-color: navy;
+    color: white;
+    margin-left: 3%;
+    flex-direction: column;
+    
+    
+}
 
 .searchmarg{
     margin: 5px;
@@ -38,7 +49,6 @@ ul{
 }
 
 .historycard{
-    /* background-color: red; */
     height: 45px;
     border: 1px;
     border-radius: 5px;
@@ -70,11 +80,18 @@ transition: transform 150ms;
     height: 94vh;
 }
 
+
+/* start ID styles */
+
 #history{
     height: 75vh;
     
 }
 
+
+
+
+/* styling for 5 day card */
 #fiveDay{
     flex-direction: row;
     display: flex;
@@ -82,17 +99,9 @@ transition: transform 150ms;
     
 }
 
-.fiveDayCard{
-    display: flex;
-    border-radius: 15px;
-    background-color: navy;
-    color: white;
-    margin-left: 3%;
-    flex-direction: column;
-    
-    
-}
 
+
+/* search button hover effect */
 #searchbtn:hover {
     opacity: .5;
     transform: translateY(-0.2rem);
