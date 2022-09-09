@@ -9,7 +9,7 @@ ul{
 .header{
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 153, 0));
+    background-image: linear-gradient( rgb(255, 153, 0),rgba(255,0,0,0));
 }
 
 
@@ -29,7 +29,6 @@ ul{
     display: flex;
     border-radius: 15px;
     background-color: rgb(46, 158, 185);
-    color: white;
     margin-left: 3%;
     flex-direction: column;
     
@@ -72,6 +71,7 @@ transition: transform 150ms;
     border: 1px;
     border-style: solid;
     border-radius: 15px;
+    display: flex;
 }
 
 .frow{
@@ -80,7 +80,40 @@ transition: transform 150ms;
     height: 94vh;
 }
 
+.uvIndexCard{
+    border-radius: 10px 10px;
+    max-width: 70%;
+}
+.uvIndexLow{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(240, 197, 133));   
+}
 
+.uvIndexMod{
+    background-image: linear-gradient(to right,rgb(247, 221, 181), rgb(250, 184, 84));
+}
+.uvIndexHigh{
+    background-image: linear-gradient(to right, rgb(250, 184, 84), rgb(255, 145, 0));
+}
+.uvIndexXhigh{
+    background-image: linear-gradient(to right,  rgb(255, 145, 0), rgb(255, 94, 0));
+}
+.uvIndexExt{
+    background-image: linear-gradient(to right,  rgb(255, 94, 0), rgb(255, 51, 0));
+}
+
+.weather{
+    min-width: 30%;
+    background-color: rgb(46, 158, 185);
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.protectionItems{
+    margin: 15px;
+    text-align: center;
+    max-width: 15%;
+}
 /* start ID styles */
 
 #history{
@@ -89,7 +122,11 @@ transition: transform 150ms;
 }
 
 
-
+#protections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 /* styling for 5 day card */
 #fiveDay{
@@ -107,3 +144,9 @@ transition: transform 150ms;
     transform: translateY(-0.2rem);
     transition: transform 150ms;
 }
+
+#uvContainer{
+    text-align: center;
+    padding: 20px;
+}
+
