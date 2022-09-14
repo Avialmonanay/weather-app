@@ -587,7 +587,7 @@ function fiveDayWeather() {
 function setFiveDayWeather(data) {
     fiveDayContainer.empty()
 
-    console.log(data.list[1].weather[0].icon)
+    console.log(data)
     for (let i = 3; i < data.list.length; i += 8) {
         var fiveDayDate = data.list[i].dt
 
@@ -620,6 +620,8 @@ function setFiveDayWeather(data) {
         var fiveDayHumidity = document.createElement("p")
         fiveDayHumidity.innerText = ("Humidity: " + data.list[i].main.humidity +"%")
 
+        var fiveDaywind = document.createElement("p")
+        fiveDaywind.innerText = ("wind: " + data.list[i].wind.speed +"mph")
 
 
         fiveDayContainer.append(card)
@@ -630,6 +632,7 @@ function setFiveDayWeather(data) {
         card.append(fiveDayHigh)
         card.append(fiveDayLow)
         card.append(fiveDayHumidity)
+        card.append(fiveDaywind)
 
 
 
