@@ -99,7 +99,7 @@ function setCurrentWeather(data) {
 }
 
 
-
+//creates the UV index information and appends the items to the page. Presets for every index value provide recommended coverage and a brief description of how to protect yourself.
 function uvDataCardCreation(uvData){
     uvCard.empty()
     recProtection.empty()
@@ -587,7 +587,7 @@ function fiveDayWeather() {
 function setFiveDayWeather(data) {
     fiveDayContainer.empty()
 
-
+    console.log(data.list[1].weather[0].icon)
     for (let i = 3; i < data.list.length; i += 8) {
         var fiveDayDate = data.list[i].dt
 
@@ -600,6 +600,13 @@ function setFiveDayWeather(data) {
 
         var fiveDayCardDate = document.createElement("h2")
         fiveDayCardDate.innerText = monthday
+
+        var fiveDayIcon = document.createElement("div")
+        var fiveDayImage = document.createElement("img")
+        var fiveDayWeatherIcon = data.list[i].weather[0].icon
+        var fiveDayIconURL = "http://openweathermap.org/img/w/" + fiveDayWeatherIcon + ".png"
+
+        fiveDayImage.setAttribute("src", fiveDayIconURL)
 
         var skyCondition = document.createElement("p")
         skyCondition.innerText = (data.list[i].weather[0].description)
@@ -618,6 +625,8 @@ function setFiveDayWeather(data) {
         fiveDayContainer.append(card)
         card.append(fiveDayCardDate)
         card.append(skyCondition)
+        card.append(fiveDayIcon)
+        fiveDayIcon.append(fiveDayImage)
         card.append(fiveDayHigh)
         card.append(fiveDayLow)
         card.append(fiveDayHumidity)
